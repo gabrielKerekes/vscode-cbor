@@ -18,7 +18,8 @@ export const activate = (context: vscode.ExtensionContext) => {
     vscode.commands.registerCommand(COMMAND_DIAGNOSE, async () => {
       let cbor = await getCbor();
       if (cbor && (await isValidCbor(cbor))) {
-        let uri = vscode.Uri.parse(`${SCHEME}:${cbor}`);
+        let tabTitle = cbor.slice(0, 20);
+        let uri = vscode.Uri.parse(`${SCHEME}:${cbor}/${tabTitle}`);
         let doc = await vscode.workspace.openTextDocument(uri);
         await vscode.window.showTextDocument(doc, {
           viewColumn: vscode.ViewColumn.Beside,

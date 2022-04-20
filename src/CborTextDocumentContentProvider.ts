@@ -5,7 +5,7 @@ export class CborTextDocumentContentProvider
   implements vscode.TextDocumentContentProvider
 {
   async provideTextDocumentContent(uri: vscode.Uri): Promise<string> {
-    const [_, cbor] = uri.toString().split(":");
+    const [_scheme, cbor, _tabTitle] = uri.toString().split(/[:\/]/);
 
     const size = cbor.length / 2;
     const diganostic = await diagnose(cbor);
