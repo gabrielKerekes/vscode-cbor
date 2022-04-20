@@ -2,7 +2,7 @@
 	"name": "cbor",
 	"displayName": "cbor",
 	"description": "Enables diagnosing CBOR directly from VS Code.",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"publisher": "gabrielkerekes",
 	"repository": "https://www.github.com/gabrielkerekes/vscode-cbor",
 	"engines": {
