@@ -47,6 +47,7 @@ const _beautifyDiagnostic = (diagnostic: string) => {
     .replaceAll("]", "\n]")
     .replaceAll("{", "{\n")
     .replaceAll("}", "\n}")
+    .replaceAll("_ ", "")
     .split("\n")
     .map((line: string) => line.trim())
     .reduce(_indent, [0, []])[1]

@@ -16,8 +16,8 @@ export const activate = (context: vscode.ExtensionContext) => {
 
   context.subscriptions.push(
     vscode.commands.registerCommand(COMMAND_DIAGNOSE, async () => {
-      let cbor = await getCbor();
-      if (cbor && (await isValidCbor(cbor))) {
+      const cbor = await getCbor();
+      if (await isValidCbor(cbor)) {
         let tabTitle = cbor.slice(0, 20);
         let uri = vscode.Uri.parse(`${SCHEME}:${cbor}/${tabTitle}`);
         let doc = await vscode.workspace.openTextDocument(uri);
